@@ -21,8 +21,13 @@ while True:
 
     delta_frame=cv2.absdiff(first_frame,gray)
 
+
+    thresh_frame=cv2.threshold(delta_frame,30,255,cv2.THRESH_BINARY)[1]
+
+
     cv2.imshow("Capturing",gray)
     cv2.imshow("Capturing Delta",delta_frame)
+    cv2.imshow("Capturing threshold",thresh_frame)
 
     key =cv2.waitKey(1)
     if key==ord('q'):
