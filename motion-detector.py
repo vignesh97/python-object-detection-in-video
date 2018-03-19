@@ -1,10 +1,11 @@
-import cv2, time
+import cv2, time,pandas
 from datetime import datetime
 
 first_frame = None
 
 statusList=[None,None]
 video = cv2.VideoCapture(0)
+df=pandas.DataFrame(columns=["Start","End"])
 
 times=[]
 a=1
@@ -49,7 +50,16 @@ while True:
 
     key =cv2.waitKey(1)
     if key==ord('q'):
+        if status == 1:
+            times.append(datetime.now())
         break
+
+df
+for i in range(0,len(times),2):
+    df=df.append({"start":times[1],"End":times[i+1]},ignore_index=True)
+
+df.to_csv("Times.csv")
+
 
 print(a)
 print(statusList)
