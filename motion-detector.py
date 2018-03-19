@@ -33,7 +33,7 @@ while True:
         (x,y,w,h)=cv2.boundingRect(contour)
         cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),3)
 
-
+    statusList.append(status)
     cv2.imshow("Capturing",gray)
     cv2.imshow("Capturing Delta",delta_frame)
     cv2.imshow("Capturing threshold",thresh_frame)
@@ -42,7 +42,8 @@ while True:
     key =cv2.waitKey(1)
     if key==ord('q'):
         break
-    print(status)
+
 print(a)
+print(statusList)
 video.release()
 cv2.destroyAllWindows()
