@@ -2,7 +2,7 @@ import cv2, time
 
 first_frame = None
 
-statusList=[]
+statusList=[None,None]
 video = cv2.VideoCapture(0)
 
 times=[]
